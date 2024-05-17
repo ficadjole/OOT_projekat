@@ -23,8 +23,10 @@
                     <Label Grid.Row="0" Grid.Column="1" Content="Nedostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
 
-                    <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True" />
-                    <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dtGrid_nedostupni" IsReadOnly="True"/>
+                    <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True"  Margin="10 0 5 0" 
+                    PreviewMouseLeftButtonDown="dtGrid_dostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_dostupni_MouseMove"/>
+                    <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dtGrid_nedostupni" IsReadOnly="True" Margin="5 0 10 0"
+                    AllowDrop="True" DragEnter="dtGrid_nedostupni_DragEnter" Drop="dtGrid_nedostupni_Drop"/>
 
 
 
@@ -34,7 +36,7 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Button x:Name="btnDodaj" Content="Dodaj novi kurs" Grid.Row="0" Margin="10 0 10 0"/>
+                            <Button x:Name="btnDodaj" Content="Dodaj novi kurs" Grid.Row="0" Margin="10 10 10 0"/>
                             <Button x:Name="btnObrisi" Content="Ukloni kurs" Grid.Row="1" Margin="10 10 10 0"/>
                         </Grid>
                     </StackPanel>
