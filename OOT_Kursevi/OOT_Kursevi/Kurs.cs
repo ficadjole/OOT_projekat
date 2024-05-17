@@ -120,5 +120,18 @@ namespace OOT_Kursevi
                 }
             }
         }
+
+        public Image Slika
+        {
+            get { return this.slika; }
+            set
+            {
+                if (this.slika != value)
+                {
+                    this.slika = value;
+                    this.NotifyPropertyChanged("ID");
+                }
+            }
+        }
     }
 }
