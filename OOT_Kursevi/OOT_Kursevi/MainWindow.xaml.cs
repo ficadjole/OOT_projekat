@@ -182,5 +182,27 @@ namespace OOT_Kursevi
             return null;
         }
 
+        private void btnObrisi_Click(object sender, RoutedEventArgs e)
+        {
+            if(dtGrid_dostupni.SelectedItem != null)
+            {
+                Kurs selektovanKurs = (Kurs)dtGrid_dostupni.SelectedItem;
+                Kursevi.Remove(selektovanKurs);
+            }else if(dtGrid_nedostupni.SelectedItem != null)
+            {
+                Kurs selektovanKurs = (Kurs)dtGrid_nedostupni.SelectedItem;
+                Kursevi_nedostupno.Remove(selektovanKurs);
+            }
+            else
+            {
+                MessageBox.Show("Niste nista selektovali");
+            }
+        }
+
+        private void btnDodaj_Click(object sender, RoutedEventArgs e)
+        {
+            AddWindow addWindow = new AddWindow();
+            addWindow.Show();
+        }
     }
 }

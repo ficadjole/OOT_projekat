@@ -38,8 +38,8 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <Button x:Name="btnDodaj" Content="Dodaj novi kurs" Grid.Row="0" Margin="10 10 10 0"/>
-                            <Button x:Name="btnObrisi" Content="Ukloni kurs" Grid.Row="1" Margin="10 10 10 0"/>
+                            <Button x:Name="btnDodaj" Content="Dodaj novi kurs" Grid.Row="0" Margin="10 10 10 0" Click="btnDodaj_Click"/>
+                            <Button x:Name="btnObrisi" Content="Ukloni kurs" Grid.Row="1" Margin="10 10 10 0" Click="btnObrisi_Click"/>
                         </Grid>
                     </StackPanel>
                 </Grid>
