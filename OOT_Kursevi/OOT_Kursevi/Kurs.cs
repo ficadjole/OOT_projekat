@@ -38,7 +38,7 @@ namespace OOT_Kursevi
             id = iD;
             this.opis = opis;
             slika = new Image();
-            slika.Source = new BitmapImage(new Uri(putanja_slike));
+            //slika.Source = new BitmapImage(new Uri(putanja_slike));
         }
 
         public Kurs() { }
