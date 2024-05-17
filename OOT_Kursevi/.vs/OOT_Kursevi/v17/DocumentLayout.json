@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|c:\\users\\win 10\\desktop\\oot_projekat\\oot_kursevi\\oot_kursevi\\kurs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|solutionrelative:oot_kursevi\\kurs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|c:\\users\\win 10\\desktop\\oot_projekat\\oot_kursevi\\oot_kursevi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|solutionrelative:oot_kursevi\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|c:\\users\\win 10\\desktop\\oot_projekat\\oot_kursevi\\oot_kursevi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|solutionrelative:oot_kursevi\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|c:\\users\\win 10\\desktop\\oot_projekat\\oot_kursevi\\oot_kursevi\\kurs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C93314DF-E0B5-4725-AD6D-AE75CC5DF050}|OOT_Kursevi\\OOT_Kursevi.csproj|solutionrelative:oot_kursevi\\kurs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,24 +22,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Kurs.cs",
               "DocumentMoniker": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\Kurs.cs",
               "RelativeDocumentMoniker": "OOT_Kursevi\\Kurs.cs",
               "ToolTip": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\Kurs.cs",
               "RelativeToolTip": "OOT_Kursevi\\Kurs.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAAAEMAAAARAAAA",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAMwHkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-17T12:24:40.139Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\MainWindow.xaml",
               "RelativeDocumentMoniker": "OOT_Kursevi\\MainWindow.xaml",
@@ -51,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "OOT_Kursevi\\MainWindow.xaml.cs",
