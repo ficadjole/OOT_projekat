@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 
 namespace OOT_Kursevi
 {
-    class Kurs : INotifyPropertyChanged
+    public class Kurs : INotifyPropertyChanged
     {
         private int id;
         private string naziv;

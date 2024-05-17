@@ -24,8 +24,10 @@
 
 
                     <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True"  Margin="10 0 5 0" 
-                    PreviewMouseLeftButtonDown="dtGrid_dostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_dostupni_MouseMove"/>
+                    PreviewMouseLeftButtonDown="dtGrid_dostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_dostupni_MouseMove"
+                    AllowDrop="True" DragEnter="dtGrid_dostupni_DragEnter" Drop="dtGrid_dostupni_Drop"/>
                     <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dtGrid_nedostupni" IsReadOnly="True" Margin="5 0 10 0"
+                    PreviewMouseLeftButtonDown="dtGrid_nedostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_nedostupni_MouseMove"
                     AllowDrop="True" DragEnter="dtGrid_nedostupni_DragEnter" Drop="dtGrid_nedostupni_Drop"/>
 
 
