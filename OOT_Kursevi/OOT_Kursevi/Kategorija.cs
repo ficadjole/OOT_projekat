@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace OOT_Kursevi
         private int id;
         private string naziv;
         private string opis;
+        private ObservableCollection<Kurs> kursevi = new ObservableCollection<Kurs>();
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -23,11 +25,12 @@ namespace OOT_Kursevi
             }
         }
 
-        public Kategorija(int id, string naziv, string opis)
+        public Kategorija(int id, string naziv, string opis, ObservableCollection<Kurs> kursevi)
         {
             this.id = id;
             this.naziv = naziv;
             this.opis = opis;
+            this.kursevi = kursevi;
         }
 
         public Kategorija() { }
@@ -67,6 +70,19 @@ namespace OOT_Kursevi
                 {
                     this.opis = value;
                     this.NotifyPropertyChanged("Opis");
+                }
+            }
+        }
+
+        public ObservableCollection<Kurs> Kursevi
+        {
+            get { return this.kursevi; }
+            set
+            {
+                if (this.kursevi != value)
+                {
+                    this.kursevi = value;
+                    this.NotifyPropertyChanged("Kursevi");
                 }
             }
         }
