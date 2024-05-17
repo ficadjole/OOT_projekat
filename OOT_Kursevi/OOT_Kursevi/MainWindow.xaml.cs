@@ -26,6 +26,15 @@ namespace OOT_Kursevi
             kursevi.Add(new Kurs(123,"Ronjenje",3000,"Sport","Ronjenje na dah",true,"C:\\Users\\win 10\\Desktop\\SnapShot1.jpg"));
             dtGrid_dostupni.ItemsSource = kursevi;
         }
-        
+
+        private void BTN_DodajClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BTN_PotvrdiClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

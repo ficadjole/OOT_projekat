@@ -40,8 +40,33 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Tab2">
-                <Label Content="Drugi tab"/>
+            <TabItem Header="Tab2" Height="20" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Drugi tab" Grid.Column="0"/>
+                    <TreeView Grid.Column="0" x:Name="KategorijeTV" Height="300" Width="400" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15 0 0 0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+                        <TreeViewItem Header="Kategorija1">
+                            <TreeViewItem Header="Kurs1"/>
+                            <TreeViewItem Header="Kurs2"/>
+                            <TreeViewItem Header="Kurs3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Kategorija2">
+                            <TreeViewItem Header="Kurs4"/>
+                            <TreeViewItem Header="Kurs5"/>
+                            <TreeViewItem Header="Kurs6"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Kategorija3">
+                            <TreeViewItem Header="Kurs7"/>
+                            <TreeViewItem Header="Kurs8"/>
+                            <TreeViewItem Header="Kurs9"/>
+                        </TreeViewItem>
+                        <Button Content="Dodaj u korpu" x:Name="Dodaj" Click="BTN_DodajClick" Height="30" Width="100" Margin="260 150 0 0"/>
+                    </TreeView>
+                    <Button Content="Potvrdi" x:Name="Potvrdi" Click="BTN_PotvrdiClick" Height="30" Width="150" Grid.Column="1" Margin="0 260 0 0"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Tab3">
                 <Label Content="Treci tab"/>
