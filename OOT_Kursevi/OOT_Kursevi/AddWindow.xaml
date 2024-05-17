@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOT_Kursevi"
         mc:Ignorable="d"
-        Title="AddWindow" Height="450" Width="400">
+        Title="AddWindow" Height="500" Width="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -17,12 +17,54 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Unesite podatke kursa" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="ID" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Naziv" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="Cena" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="4" Grid.Column="0" Content="Vrsta" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Opis" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="Dostupnost" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="Slika" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtBoxID" Margin="10"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtBoxNaziv" Margin="10"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtBoxCena" Margin="10"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtBoxVrsta" Margin="10"/>
+        <RichTextBox Grid.Row="5" Grid.Column="1" x:Name="txtBoxOpis" Margin="10"/>
         
-        
-        
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Grid.Column="0" Content="Dostupan" Name="rdBtnDostupan" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="10 10 0 0"/>
+                <RadioButton Grid.Column="1" Content="Nedostupan" Name="rdBtnNedostupan" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0 10 10 0"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7" Grid.Column="1" Height="auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1" Content="Browse" Margin="10" Name="btnBrowse" Click="btnBrowse_Click"/>
+                <Image Grid.Column="0" Name="imgIkonica" Margin="10 0 10 0" Height="auto"/>
+
+            </Grid>
+        </StackPanel>
+
+        <Button Grid.Row="9" Grid.Column="0" Content="Dodaj" Name="btnDodajKurs" Margin="10" Click="btnDodajKurs_Click"/>
+        <Button Grid.Row="9" Grid.Column="1" Content="Zatvori" Name="btnZatvori" Margin="10" Click="btnZatvori_Click"/>
     </Grid>
 </Window>

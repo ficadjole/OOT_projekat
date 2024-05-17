@@ -201,7 +201,7 @@ namespace OOT_Kursevi
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            AddWindow addWindow = new AddWindow();
+            AddWindow addWindow = new AddWindow(Kursevi,Kursevi_nedostupno);
             addWindow.Show();
         }
     }
