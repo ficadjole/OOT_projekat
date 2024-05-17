@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\win 10\\Desktop\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj": {}
+    "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\win 10\\Desktop\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj": {
+    "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\win 10\\Desktop\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj",
+        "projectUniqueName": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj",
         "projectName": "OOT_Kursevi",
-        "projectPath": "C:\\Users\\win 10\\Desktop\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj",
+        "projectPath": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\OOT_Kursevi.csproj",
         "packagesPath": "C:\\Users\\win 10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\win 10\\Desktop\\OOT_Kursevi\\OOT_Kursevi\\obj\\",
+        "outputPath": "C:\\Users\\win 10\\Desktop\\OOT_projekat\\OOT_Kursevi\\OOT_Kursevi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\win 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
