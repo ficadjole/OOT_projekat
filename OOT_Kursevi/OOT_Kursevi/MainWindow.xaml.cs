@@ -20,12 +20,14 @@ namespace OOT_Kursevi
 
         private ObservableCollection<Kurs> kursevi = new ObservableCollection<Kurs>();
         private ObservableCollection<Kurs> kursevi2 = new ObservableCollection<Kurs>();
+        private ObservableCollection<Kategorija> sport = new ObservableCollection<Kategorija>();
 
         public MainWindow()
         {
             InitializeComponent();
             kursevi.Add(new Kurs(123,"Ronjenje",3000,"Sport","Ronjenje na dah",true,"C:\\Users\\win 10\\Desktop\\SnapShot1.jpg"));
             kursevi2.Add(new Kurs(123, "Ronjenje", 3000, "Sport", "Ronjenje na dah", false, "C:\\Users\\win 10\\Desktop\\SnapShot1.jpg"));
+            
             dtGrid_dostupni.ItemsSource = kursevi;
             dtGrid_nedostupni.ItemsSource = kursevi2;
         }
