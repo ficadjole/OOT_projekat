@@ -19,3 +19,24 @@ C:\Users\win 10\Desktop\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-wi
 C:\Users\win 10\Desktop\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.pdb
 C:\Users\win 10\Desktop\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.genruntimeconfig.cache
 C:\Users\win 10\Desktop\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\ref\OOT_Kursevi.dll
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\bin\Debug\net6.0-windows\OOT_Kursevi.exe
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\bin\Debug\net6.0-windows\OOT_Kursevi.deps.json
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\bin\Debug\net6.0-windows\OOT_Kursevi.runtimeconfig.json
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\bin\Debug\net6.0-windows\OOT_Kursevi.dll
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\bin\Debug\net6.0-windows\OOT_Kursevi.pdb
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi_MarkupCompile.cache
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi_MarkupCompile.lref
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.g.resources
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.AssemblyInfoInputs.cache
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.AssemblyInfo.cs
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.dll
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\refint\OOT_Kursevi.dll
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.pdb
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\OOT_Kursevi.genruntimeconfig.cache
+C:\Users\pc\Desktop\OOT\Projekat\OOT_projekat\OOT_Kursevi\OOT_Kursevi\obj\Debug\net6.0-windows\ref\OOT_Kursevi.dll
