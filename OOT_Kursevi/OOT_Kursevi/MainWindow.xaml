@@ -21,6 +21,13 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="Dostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                     <Label Grid.Row="0" Grid.Column="1" Content="Nedostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+
+                    <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True" />
+                    <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dtGrid_nedostupni" IsReadOnly="True"/>
+
+
+
                     <StackPanel Grid.Row="2" Grid.Column="1">
                         <Grid>
                             <Grid.RowDefinitions>
