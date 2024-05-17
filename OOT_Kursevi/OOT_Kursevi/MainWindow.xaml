@@ -11,7 +11,7 @@
             <TabItem Header="Tab1">
                 <Label Content="Prvi tab"/>
             </TabItem>
-            <TabItem Header="Tab2">
+            <TabItem Header="Tab2" Height="20" VerticalAlignment="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
