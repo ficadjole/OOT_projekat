@@ -4,15 +4,20 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace OOT_Kursevi
 {
     class Kurs : INotifyPropertyChanged
     {
+        private int id;
         private string naziv;
         private int cena;
         private string vrsta;
         private bool dostupnost;
+        private string opis;
+        private Image slika;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -24,12 +29,16 @@ namespace OOT_Kursevi
             }
         }
 
-        public Kurs(string naziv, int cena, string vrsta, bool dostupnost)
+        public Kurs(int iD,string naziv, int cena, string vrsta, string opis, bool dostupnost,string putanja_slike)
         {
             this.naziv = naziv;
             this.cena = cena;
             this.vrsta = vrsta;
             this.dostupnost = dostupnost;
+            id = iD;
+            this.opis = opis;
+            slika = new Image();
+            slika.Source = new BitmapImage(new Uri(putanja_slike));
         }
 
         public Kurs() { }
@@ -82,6 +91,32 @@ namespace OOT_Kursevi
                 {
                     this.dostupnost = value;
                     this.NotifyPropertyChanged("Dostupnost");
+                }
+            }
+        }
+
+        public string Opis
+        {
+            get { return this.opis; }
+            set
+            {
+                if(this.opis != value)
+                {
+                    this.opis = value;
+                    this.NotifyPropertyChanged("Opis");
+                }
+            }
+        }
+
+        public int ID
+        {
+            get { return this.id; }
+            set
+            {
+                if(this.id != value)
+                {
+                    this.id = value;
+                    this.NotifyPropertyChanged("ID");
                 }
             }
         }
