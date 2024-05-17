@@ -20,5 +20,15 @@ namespace OOT_Kursevi
         {
             InitializeComponent();
         }
+
+        private void BTN_DodajClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BTN_PotvrdiClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

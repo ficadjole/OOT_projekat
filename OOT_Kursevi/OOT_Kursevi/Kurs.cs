@@ -18,7 +18,7 @@ namespace OOT_Kursevi
 
         private void NotifyPropertyChanged(string v)
         {
-            if(this.PropertyChanged != null)
+            if (this.PropertyChanged != null)
             {
                 this.PropertyChanged(this, new PropertyChangedEventArgs(v));
             }
@@ -34,11 +34,12 @@ namespace OOT_Kursevi
 
         public Kurs() { }
 
-        public string Naziv { 
+        public string Naziv
+        {
             get { return this.naziv; }
             set
             {
-                if(this.naziv != value)
+                if (this.naziv != value)
                 {
                     this.naziv = value;
                     this.NotifyPropertyChanged("Naziv");
@@ -51,7 +52,7 @@ namespace OOT_Kursevi
             get { return this.cena; }
             set
             {
-                if(this.cena != value)
+                if (this.cena != value)
                 {
                     this.cena = value;
                     this.NotifyPropertyChanged("Cena");
@@ -64,7 +65,7 @@ namespace OOT_Kursevi
             get { return this.vrsta; }
             set
             {
-                if(this.vrsta != value)
+                if (this.vrsta != value)
                 {
                     this.vrsta = value;
                     this.NotifyPropertyChanged("Vrsta");
@@ -77,11 +78,12 @@ namespace OOT_Kursevi
             get { return this.dostupnost; }
             set
             {
-                if(this.dostupnost != value)
+                if (this.dostupnost != value)
                 {
                     this.dostupnost = value;
                     this.NotifyPropertyChanged("Dostupnost");
                 }
             }
+        }
     }
 }
