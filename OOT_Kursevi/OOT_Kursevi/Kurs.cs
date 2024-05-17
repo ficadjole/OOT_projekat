@@ -31,11 +31,11 @@ namespace OOT_Kursevi
 
         public Kurs(int iD,string naziv, int cena, string vrsta, string opis, bool dostupnost,string putanja_slike)
         {
+            id = iD;
             this.naziv = naziv;
             this.cena = cena;
             this.vrsta = vrsta;
             this.dostupnost = dostupnost;
-            id = iD;
             this.opis = opis;
             slika = new Image();
             //slika.Source = new BitmapImage(new Uri(putanja_slike));
