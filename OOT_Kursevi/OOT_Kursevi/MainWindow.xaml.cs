@@ -17,21 +17,37 @@ namespace OOT_Kursevi
     /// </summary>
     public partial class MainWindow : Window
     {
+        Point startPoint = new Point();
 
-        private ObservableCollection<Kurs> kursevi = new ObservableCollection<Kurs>();
-        private ObservableCollection<Kurs> kursevi2 = new ObservableCollection<Kurs>();
         private ObservableCollection<Kategorija> sport = new ObservableCollection<Kategorija>();
-
+        
         public MainWindow()
         {
             InitializeComponent();
-            kursevi.Add(new Kurs(1,"Ronjenje",3000,"Sport","Ronjenje na dah",true, ".\\OOT_Kursevi\\slike\\C.webp"));
-            kursevi.Add(new Kurs(2,"Teretana",5200,"Sport","Personalni trening",true,".\\OOT_Kursevi\\slike\\gym.jpg"));
+            this.DataContext = this;
+            List<Kurs> l = new List<Kurs>();
+            List<Kurs> l2 = new List<Kurs>();
+            l.Add(new Kurs(1,"Ronjenje",3000,"Sport","Ronjenje na dah",true, ".\\OOT_Kursevi\\slike\\C.webp"));
+            l.Add(new Kurs(2,"Teretana",5200,"Sport","Personalni trening",true,".\\OOT_Kursevi\\slike\\gym.jpg"));
             
-            kursevi_nedostupni.Add(new Kurs(2, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\C.webp"));
+            l2.Add(new Kurs(2, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\C.webp"));
             
-            dtGrid_dostupni.ItemsSource = kursevi;
-            dtGrid_nedostupni.ItemsSource = kursevi_nedostupni;
+            Kursevi = new ObservableCollection<Kurs>(l);
+            Kursevi_nedostupno = new ObservableCollection<Kurs>(l2);
+            dtGrid_dostupni.ItemsSource = Kursevi;
+            dtGrid_nedostupni.ItemsSource = Kursevi_nedostupno;
+        }
+
+        public ObservableCollection<Kurs> Kursevi
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection <Kurs> Kursevi_nedostupno
+        {
+            get;
+            set;
         }
 
         private void BTN_DodajClick(object sender, RoutedEventArgs e)
@@ -46,22 +62,125 @@ namespace OOT_Kursevi
 
         private void dtGrid_dostupni_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            startPoint = e.GetPosition(null);
         }
 
         private void dtGrid_dostupni_MouseMove(object sender, MouseEventArgs e)
         {
+            Point mousePos = e.GetPosition(null);   
+            Vector diff = startPoint - mousePos;
+            var dg = sender as DataGrid;
+
+            if(e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance)) 
+            {
+
+                var DataGridRow = FindAnchestor<DataGridRow>((DependencyObject)e.OriginalSource);
+
+                if(DataGridRow == null) { return; }
+
+                var dataTodrop = (Kurs)dg.ItemContainerGenerator.ItemFromContainer(DataGridRow);
+
+                if(dataTodrop == null) { return; }
+
+                var dataObj = new DataObject("myFormat",dataTodrop);
+
+                DragDrop.DoDragDrop(dg, dataObj, DragDropEffects.Move);
+
+            }
+
+
 
         }
 
         private void dtGrid_nedostupni_DragEnter(object sender, DragEventArgs e)
         {
-
+            if(!e.Data.GetDataPresent("myFormat") || sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
         }
 
         private void dtGrid_nedostupni_Drop(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Kurs kurs = e.Data.GetData("myFormat") as Kurs;
+                kurs.Dostupnost = false;
+                Kursevi.Remove(kurs);
+                Kursevi_nedostupno.Add(kurs);
+
+            }
 
         }
+
+        private void dtGrid_nedostupni_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void dtGrid_nedostupni_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+            var dg = sender as DataGrid;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance ||
+                Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+
+                var DataGridRow = FindAnchestor<DataGridRow>((DependencyObject)e.OriginalSource);
+
+                if (DataGridRow == null) { return; }
+
+                var dataTodrop = (Kurs)dg.ItemContainerGenerator.ItemFromContainer(DataGridRow);
+
+                if (dataTodrop == null) { return; }
+
+                var dataObj = new DataObject("myFormat", dataTodrop);
+
+                DragDrop.DoDragDrop(dg, dataObj, DragDropEffects.Move);
+
+            }
+        }
+
+        private void dtGrid_dostupni_DragEnter(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || sender == e.Source)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void dtGrid_dostupni_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Kurs kurs = e.Data.GetData("myFormat") as Kurs;
+                kurs.Dostupnost = true;
+
+                Kursevi_nedostupno.Remove(kurs);
+                Kursevi.Add(kurs);
+
+            }
+        }
+
+        private static T FindAnchestor<T>(DependencyObject current) where T : DependencyObject
+        {
+            do
+            {
+                if (current is T)
+                {
+                    return (T)current;
+                }
+
+                current = VisualTreeHelper.GetParent(current);
+
+            } while (current != null);
+            return null;
+        }
+
     }
 }
