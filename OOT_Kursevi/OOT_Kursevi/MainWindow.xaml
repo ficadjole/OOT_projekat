@@ -42,7 +42,7 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Tab2" Height="20" VerticalAlignment="Center">
+            <TabItem Header="Tab2" Height="20" VerticalAlignment="Bottom">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

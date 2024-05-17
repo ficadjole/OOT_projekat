@@ -19,7 +19,8 @@ namespace OOT_Kursevi
     {
 
         private ObservableCollection<Kurs> kursevi = new ObservableCollection<Kurs>();
-        private ObservableCollection<Kurs> kursevi_nedostupni = new ObservableCollection<Kurs>();
+        private ObservableCollection<Kurs> kursevi2 = new ObservableCollection<Kurs>();
+        private ObservableCollection<Kategorija> sport = new ObservableCollection<Kategorija>();
 
         public MainWindow()
         {
