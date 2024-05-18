@@ -218,5 +218,71 @@ namespace OOT_Kursevi
             AddWindow addWindow = new AddWindow(Kursevi,Kursevi_nedostupno);
             addWindow.Show();
         }
+
+        private void btnIzmeniti_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtGrid_dostupni.SelectedIndex != -1)
+            {
+                Kurs k = (Kurs)dtGrid_dostupni.SelectedItem;
+
+                EditWindow editWindow = new EditWindow(k,Kursevi,Kursevi_nedostupno);
+                editWindow.Show();
+
+            } else if (dtGrid_nedostupni.SelectedIndex != -1)
+            {
+                Kurs k = (Kurs)dtGrid_nedostupni.SelectedItem;
+
+                EditWindow ed = new EditWindow(k, Kursevi, Kursevi_nedostupno);
+                ed.Show();
+            }
+            else
+            {
+                MessageBox.Show("Niste selektovali niti jedan kurs");
+            }
+        }
+
+        private void btnPretraga_Click(object sender, RoutedEventArgs e)
+        {
+
+            //var pretraga1 = Kursevi.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+            //var pretraga2 = Kursevi_nedostupno.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+
+            //if (pretraga1.Any())
+            //{
+            //dtGrid_dostupni.ItemsSource = pretraga1;
+
+            //}
+            //else if (pretraga2.Any())
+            //{
+            //   dtGrid_nedostupni.ItemsSource = pretraga2;
+            //}
+            //else
+            //{
+            //   txtBoxPretraga.Clear();
+            //    MessageBox.Show("Vrsta: " + txtBoxPretraga.Text + " nije dostupna");
+            //}
+
+        }
+
+        private void txtBoxPretraga_KeyUp(object sender, KeyEventArgs e)
+        {
+            var pretraga1 = Kursevi.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+            var pretraga2 = Kursevi_nedostupno.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+
+            if (pretraga1.Any())
+            {
+                dtGrid_dostupni.ItemsSource = pretraga1;
+
+            }
+            else if (pretraga2.Any())
+            {
+                dtGrid_nedostupni.ItemsSource = pretraga2;
+            }
+            else
+            {
+                txtBoxPretraga.Clear();
+                MessageBox.Show("Vrsta: " + txtBoxPretraga.Text + " nije dostupna");
+            }
+        }
     }
 }
