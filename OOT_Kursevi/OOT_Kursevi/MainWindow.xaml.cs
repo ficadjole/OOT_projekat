@@ -19,7 +19,7 @@ namespace OOT_Kursevi
     {
         Point startPoint = new Point();
 
-        private ObservableCollection<Kategorija> sport = new ObservableCollection<Kategorija>();
+
         
         public MainWindow()
         {
@@ -27,15 +27,33 @@ namespace OOT_Kursevi
             this.DataContext = this;
             List<Kurs> l = new List<Kurs>();
             List<Kurs> l2 = new List<Kurs>();
+            List<Kurs> l3 = new List<Kurs>();
+
             l.Add(new Kurs(1,"Ronjenje",3000,"Sport","Ronjenje na dah",true, ".\\OOT_Kursevi\\slike\\C.webp"));
             l.Add(new Kurs(2,"Teretana",5200,"Sport","Personalni trening",true,".\\OOT_Kursevi\\slike\\gym.jpg"));
+            l.Add(new Kurs(3, "Skijanje", 6000, "Sport", "Simulacija skijanja", true, ".\\OOT_Kursevi\\slike\\skijanje.jpg"));
+            Kategorija sport = new Kategorija(1, "Sport", "Kursevi za sport", l);
             
-            l2.Add(new Kurs(3, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\C.webp"));
-            
+            l2.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\pasta.jpg"));
+            l2.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, ".\\OOT_Kursevi\\slike\\pizza.jpg"));
+            Kategorija hrana = new Kategorija(2, "Hrana", "Kursevi za pravljenje hrane", l2);
+
+            l3.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, ".\\OOT_Kursevi\\slike\\C.webp"));
+            l3.Add(new Kurs(7, "Python", 5500, "Programiranje" , "Python kurs za sve", true, ".\\OOT_Kursevi\\slike\\python.png"));
+            l3.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, ".\\OOT_Kursevi\\slike\\c_sharp.jpg"));
+            Kategorija programiranje = new Kategorija(3, "Programiranje", "Kursevi za programiranje", l3);
+
+            Kategorije = new ObservableCollection<Kategorija> { sport, hrana, programiranje };
             Kursevi = new ObservableCollection<Kurs>(l);
             Kursevi_nedostupno = new ObservableCollection<Kurs>(l2);
             dtGrid_dostupni.ItemsSource = Kursevi;
             dtGrid_nedostupni.ItemsSource = Kursevi_nedostupno;
+        }
+
+        public ObservableCollection<Kategorija> Kategorije 
+        { 
+            get; 
+            set; 
         }
 
         public ObservableCollection<Kurs> Kursevi
@@ -89,9 +107,6 @@ namespace OOT_Kursevi
                 DragDrop.DoDragDrop(dg, dataObj, DragDropEffects.Move);
 
             }
-
-
-
         }
 
         private void dtGrid_nedostupni_DragEnter(object sender, DragEventArgs e)
@@ -112,7 +127,6 @@ namespace OOT_Kursevi
                 Kursevi_nedostupno.Add(kurs);
 
             }
-
         }
 
         private void dtGrid_nedostupni_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

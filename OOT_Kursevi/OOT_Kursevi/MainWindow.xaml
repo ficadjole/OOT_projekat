@@ -6,27 +6,39 @@
         xmlns:local="clr-namespace:OOT_Kursevi"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="KursTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Slika.Source}" Width="25" Height="25" Margin="5" />
+                <TextBlock Text="{Binding Naziv}" VerticalAlignment="Center" Margin="5,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+        <HierarchicalDataTemplate x:Key="KategorijaTemplate" ItemsSource="{Binding Kursevi}" ItemTemplate="{StaticResource KursTemplate}">
+            <TextBlock Text="{Binding Naziv}" FontWeight="Bold" />
+        </HierarchicalDataTemplate>
+    </Window.Resources>
     <Grid>
         <TabControl>
             <TabItem Header="Tab1">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="54*"/>
+                        <ColumnDefinition Width="343*"/>
+                        <ColumnDefinition Width="397*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="4*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="Dostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <Label Grid.Row="0" Grid.Column="1" Content="Nedostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Dostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,270" Grid.RowSpan="2"/>
+                    <Label Grid.Row="0" Grid.Column="2" Content="Nedostupni kursevi" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,270" Grid.RowSpan="2"/>
 
 
-                    <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True"  Margin="10 0 5 0" 
+                    <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True"  Margin="10,0,5,0" 
                     PreviewMouseLeftButtonDown="dtGrid_dostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_dostupni_MouseMove"
-                    AllowDrop="True" DragEnter="dtGrid_dostupni_DragEnter" Drop="dtGrid_dostupni_Drop"/>
-                    <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dtGrid_nedostupni" IsReadOnly="True" Margin="5 0 10 0"
+                    AllowDrop="True" DragEnter="dtGrid_dostupni_DragEnter" Drop="dtGrid_dostupni_Drop" Grid.ColumnSpan="2"/>
+                    <DataGrid Grid.Row="1" Grid.Column="2" x:Name="dtGrid_nedostupni" IsReadOnly="True" Margin="5,0,10,0"
                     PreviewMouseLeftButtonDown="dtGrid_nedostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_nedostupni_MouseMove"
                     AllowDrop="True" DragEnter="dtGrid_nedostupni_DragEnter" Drop="dtGrid_nedostupni_Drop"/>
 
@@ -56,7 +68,7 @@
                     </StackPanel>
                     
 
-                    <StackPanel Grid.Row="2" Grid.Column="1">
+                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,270,0,0" Grid.RowSpan="2">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
@@ -74,24 +86,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Drugi tab" Grid.Column="0"/>
-                    <TreeView Grid.Column="0" x:Name="KategorijeTV" Height="300" Width="700" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0" Grid.ColumnSpan="2" Grid.RowSpan="2">
-                        <TreeViewItem Header="Kategorija1">
-                            <TreeViewItem Header="Kurs1"/>
-                            <TreeViewItem Header="Kurs2"/>
-                            <TreeViewItem Header="Kurs3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Kategorija2">
-                            <TreeViewItem Header="Kurs4"/>
-                            <TreeViewItem Header="Kurs5"/>
-                            <TreeViewItem Header="Kurs6"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Kategorija3">
-                            <TreeViewItem Header="Kurs7"/>
-                            <TreeViewItem Header="Kurs8"/>
-                            <TreeViewItem Header="Kurs9"/>
-                        </TreeViewItem>
-                        </TreeView>
+                    <!--<Label Content="Drugi tab" Grid.Column="0"/>-->
+                    <TreeView ItemsSource="{Binding Kategorije}" ItemTemplate="{StaticResource KategorijaTemplate}" Grid.ColumnSpan="2" Margin="10 10 10 60" />
                     <Button Content="Potvrdi" x:Name="Potvrdi" Click="BTN_PotvrdiClick" Height="30" Width="200" Grid.Column="1" Margin="-400 350 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <Button Content="Dodaj u korpu" x:Name="Dodaj" Click="BTN_DodajClick" Height="30" Width="100" Margin="-200 350 0 0"/>
                 </Grid>
