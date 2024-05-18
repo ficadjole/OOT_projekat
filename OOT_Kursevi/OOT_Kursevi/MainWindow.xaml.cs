@@ -35,12 +35,12 @@ namespace OOT_Kursevi
             Kategorija sport = new Kategorija(1, "Sport", "Kursevi za sport", l);
             
             l2.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\pasta.jpg"));
-            l2.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, ".\\OOT_Kursevi\\slike\\pizza.jpg"));
+            l.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, ".\\OOT_Kursevi\\slike\\pizza.jpg"));
             Kategorija hrana = new Kategorija(2, "Hrana", "Kursevi za pravljenje hrane", l2);
 
-            l3.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, ".\\OOT_Kursevi\\slike\\C.webp"));
-            l3.Add(new Kurs(7, "Python", 5500, "Programiranje" , "Python kurs za sve", true, ".\\OOT_Kursevi\\slike\\python.png"));
-            l3.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, ".\\OOT_Kursevi\\slike\\c_sharp.jpg"));
+            l.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, ".\\OOT_Kursevi\\slike\\C.webp"));
+            l.Add(new Kurs(7, "Python", 5500, "Programiranje" , "Python kurs za sve", true, ".\\OOT_Kursevi\\slike\\python.png"));
+            l2.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, ".\\OOT_Kursevi\\slike\\c_sharp.jpg"));
             Kategorija programiranje = new Kategorija(3, "Programiranje", "Kursevi za programiranje", l3);
 
             Kategorije = new ObservableCollection<Kategorija> { sport, hrana, programiranje };
