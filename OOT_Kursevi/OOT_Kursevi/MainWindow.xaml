@@ -31,6 +31,30 @@
                     AllowDrop="True" DragEnter="dtGrid_nedostupni_DragEnter" Drop="dtGrid_nedostupni_Drop"/>
 
 
+                    <StackPanel Grid.Row="2" Grid.Column="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Button Grid.Row="0" x:Name="btnIzmeniti" Content="Izmeni" Margin="10 10 10 0" Click="btnIzmeniti_Click"/>
+
+                            <StackPanel Grid.Row="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBox x:Name="txtBoxPretraga" Margin="10" Grid.Column="0" KeyUp="txtBoxPretraga_KeyUp"/>
+                                    <Button x:Name="btnPretraga" Content="Pretrazi" Margin="10" Grid.Column="1" Click="btnPretraga_Click"/>
+                                </Grid>
+                            </StackPanel>
+                            
+                        </Grid>
+                    </StackPanel>
+                    
 
                     <StackPanel Grid.Row="2" Grid.Column="1">
                         <Grid>

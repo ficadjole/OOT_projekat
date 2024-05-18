@@ -17,70 +17,63 @@ using System.Windows.Shapes;
 namespace OOT_Kursevi
 {
     /// <summary>
-    /// Interaction logic for AddWindow.xaml
+    /// Interaction logic for EditWindow.xaml
     /// </summary>
-    public partial class AddWindow : Window
-    {   
+    public partial class EditWindow : Window
+    {
+
         private ObservableCollection<Kurs> kursevi;
         private ObservableCollection<Kurs> kursevi_nedosupni;
+        Kurs stari_kurs;
 
-        public AddWindow(ObservableCollection<Kurs> Kursevi,ObservableCollection<Kurs> Kursevi_nedostupni)
+        public EditWindow(Kurs k,ObservableCollection<Kurs>Kursevi,ObservableCollection<Kurs>Kursevi_nedostupni)
         {
             InitializeComponent();
+
+            stari_kurs = k;
             kursevi = Kursevi;
             kursevi_nedosupni = Kursevi_nedostupni;
-        }
 
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
+            txtBoxID.Text = k.ID.ToString();
+            txtBoxCena.Text = k.Cena.ToString();
+            txtBoxNaziv.Text = k.Naziv.ToString();
+            txtBoxVrsta.Text = k.Vrsta.ToString();
+            rdBtnDostupan.IsChecked = (k.Dostupnost) ? true : false;
+            rdBtnNedostupan.IsChecked = (k.Dostupnost) ? false : true;
 
-            dlg.InitialDirectory = "c:\\";
-            dlg.Filter = "Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
-            dlg.RestoreDirectory = true;
-            dlg.Multiselect = false;
+            txtBoxOpis.Text = k.Opis.ToString();
 
-            if(dlg.ShowDialog() == true)
-            {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(dlg.FileName);
-                bitmap.EndInit();
-                imgIkonica.Source = bitmap;
-
-            }
+            imgIkonica = k.Slika;
+            kursevi.Remove(stari_kurs);
+            kursevi_nedosupni.Remove(stari_kurs);
 
         }
 
-        private void btnZatvori_Click(object sender, RoutedEventArgs e)
+        private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
 
-        private void btnDodajKurs_Click(object sender, RoutedEventArgs e)
-        {
             Kurs kurs = new Kurs();
-            int id,cena;
+            int id, cena;
 
-            if(rdBtnDostupan.IsChecked == true && txtBoxID.Text != null && txtBoxNaziv.Text != null && txtBoxCena.Text != null && txtBoxVrsta != null && txtBoxOpis != null && imgIkonica.Source != null)
+            if (rdBtnDostupan.IsChecked == true && txtBoxID.Text != null && txtBoxNaziv.Text != null && txtBoxCena.Text != null && txtBoxVrsta != null && txtBoxOpis != null && imgIkonica.Source != null)
             {
-                if (Int32.TryParse(txtBoxID.Text, out id) && Int32.TryParse(txtBoxCena.Text,out cena))
+                if (Int32.TryParse(txtBoxID.Text, out id) && Int32.TryParse(txtBoxCena.Text, out cena))
                 {
                     foreach (Kurs k in kursevi)
                     {
-    
-                        if(k.ID == id)
+
+                        if (k.ID == id)
                         {
                             MessageBox.Show("ID: " + txtBoxID.Text + " je trenutno zauzet");
                             return;
                         }
-                    
+
 
                         if (k.Naziv.Equals(txtBoxNaziv.Text))
                         {
                             MessageBox.Show("Kurs sa imenom: " + txtBoxNaziv.Text + " vec postoji");
                             return;
-                        
+
                         }
                     }
 
@@ -94,8 +87,10 @@ namespace OOT_Kursevi
                     kurs.Opis = txtBoxOpis.Text;
                     kurs.Slika = imgIkonica;
 
+                    
+
                     kursevi.Add(kurs);
-                    MessageBox.Show("Uspesno ste dodali novi kurs");
+                    MessageBox.Show("Uspesno ste promenili kurs");
                     this.Close();
                 }
                 else
@@ -104,7 +99,8 @@ namespace OOT_Kursevi
                     return;
                 }
 
-            }else if(rdBtnNedostupan.IsChecked == true && txtBoxID.Text != null && txtBoxNaziv.Text != null && txtBoxCena.Text != null && txtBoxVrsta != null && txtBoxOpis != null && imgIkonica.Source != null)
+            }
+            else if (rdBtnNedostupan.IsChecked == true && txtBoxID.Text != null && txtBoxNaziv.Text != null && txtBoxCena.Text != null && txtBoxVrsta != null && txtBoxOpis != null && imgIkonica.Source != null)
             {
                 if (Int32.TryParse(txtBoxID.Text, out id) && Int32.TryParse(txtBoxCena.Text, out cena))
                 {
@@ -136,8 +132,10 @@ namespace OOT_Kursevi
                     kurs.Opis = txtBoxOpis.Text;
                     kurs.Slika = imgIkonica;
 
+                    
+
                     kursevi_nedosupni.Add(kurs);
-                    MessageBox.Show("Uspesno ste dodali novi kurs");
+                    MessageBox.Show("Uspesno ste promenili kurs");
                     this.Close();
                 }
                 else
@@ -153,6 +151,33 @@ namespace OOT_Kursevi
                 MessageBox.Show("Morate da popunite sva polja pre dodavanja");
                 return;
             }
+
+
+        }
+
+        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+
+            dlg.InitialDirectory = "c:\\";
+            dlg.Filter = "Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
+            dlg.RestoreDirectory = true;
+            dlg.Multiselect = false;
+
+            if (dlg.ShowDialog() == true)
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(dlg.FileName);
+                bitmap.EndInit();
+                imgIkonica.Source = bitmap;
+
+            }
+        }
+
+        private void btnZatvori_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
