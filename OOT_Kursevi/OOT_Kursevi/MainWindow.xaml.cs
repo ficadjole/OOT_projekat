@@ -30,7 +30,7 @@ namespace OOT_Kursevi
             l.Add(new Kurs(1,"Ronjenje",3000,"Sport","Ronjenje na dah",true, ".\\OOT_Kursevi\\slike\\C.webp"));
             l.Add(new Kurs(2,"Teretana",5200,"Sport","Personalni trening",true,".\\OOT_Kursevi\\slike\\gym.jpg"));
             
-            l2.Add(new Kurs(2, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\C.webp"));
+            l2.Add(new Kurs(3, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\C.webp"));
             
             Kursevi = new ObservableCollection<Kurs>(l);
             Kursevi_nedostupno = new ObservableCollection<Kurs>(l2);
@@ -203,6 +203,72 @@ namespace OOT_Kursevi
         {
             AddWindow addWindow = new AddWindow(Kursevi,Kursevi_nedostupno);
             addWindow.Show();
+        }
+
+        private void btnIzmeniti_Click(object sender, RoutedEventArgs e)
+        {
+            if (dtGrid_dostupni.SelectedIndex != -1)
+            {
+                Kurs k = (Kurs)dtGrid_dostupni.SelectedItem;
+
+                EditWindow editWindow = new EditWindow(k,Kursevi,Kursevi_nedostupno);
+                editWindow.Show();
+
+            } else if (dtGrid_nedostupni.SelectedIndex != -1)
+            {
+                Kurs k = (Kurs)dtGrid_nedostupni.SelectedItem;
+
+                EditWindow ed = new EditWindow(k, Kursevi, Kursevi_nedostupno);
+                ed.Show();
+            }
+            else
+            {
+                MessageBox.Show("Niste selektovali niti jedan kurs");
+            }
+        }
+
+        private void btnPretraga_Click(object sender, RoutedEventArgs e)
+        {
+
+            //var pretraga1 = Kursevi.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+            //var pretraga2 = Kursevi_nedostupno.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+
+            //if (pretraga1.Any())
+            //{
+            //dtGrid_dostupni.ItemsSource = pretraga1;
+
+            //}
+            //else if (pretraga2.Any())
+            //{
+            //   dtGrid_nedostupni.ItemsSource = pretraga2;
+            //}
+            //else
+            //{
+            //   txtBoxPretraga.Clear();
+            //    MessageBox.Show("Vrsta: " + txtBoxPretraga.Text + " nije dostupna");
+            //}
+
+        }
+
+        private void txtBoxPretraga_KeyUp(object sender, KeyEventArgs e)
+        {
+            var pretraga1 = Kursevi.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+            var pretraga2 = Kursevi_nedostupno.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+
+            if (pretraga1.Any())
+            {
+                dtGrid_dostupni.ItemsSource = pretraga1;
+
+            }
+            else if (pretraga2.Any())
+            {
+                dtGrid_nedostupni.ItemsSource = pretraga2;
+            }
+            else
+            {
+                txtBoxPretraga.Clear();
+                MessageBox.Show("Vrsta: " + txtBoxPretraga.Text + " nije dostupna");
+            }
         }
     }
 }
