@@ -19,8 +19,8 @@ namespace OOT_Kursevi
     {
         Point startPoint = new Point();
 
+        public ObservableCollection<Kurs> Korpa { get; set; } = new ObservableCollection<Kurs>();
 
-        
         public MainWindow()
         {
             InitializeComponent();
@@ -85,12 +85,54 @@ namespace OOT_Kursevi
 
         private void BTN_DodajClick(object sender, RoutedEventArgs e)
         {
+            var izabraniKursevi = GetSelectedCoursesFromTreeView(TreeViewKursevi);
+            foreach (var kurs in izabraniKursevi)
+            {
+                if (!Korpa.Contains(kurs))
+                {
+                    Korpa.Add(kurs);
+                    MessageBox.Show($"Kurs '{kurs.Naziv}' je uspešno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Kurs '{kurs.Naziv}' je već u korpi.", "Kurs već dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
 
+        private List<Kurs> GetSelectedCoursesFromTreeView(TreeView treeView)
+        {
+            var izabraniKursevi = new List<Kurs>();
+            foreach (var item in treeView.Items)
+            {
+                var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
+                if (treeViewItem != null && treeViewItem.IsSelected)
+                {
+                    izabraniKursevi.Add(treeViewItem.DataContext as Kurs);
+                }
+                GetSelectedCoursesFromTreeViewItem(treeViewItem, izabraniKursevi);
+            }
+            return izabraniKursevi;
+        }
+
+        private void GetSelectedCoursesFromTreeViewItem(TreeViewItem item, List<Kurs> izabraniKursevi)
+        {
+            if (item == null) return;
+            foreach (var subItem in item.Items)
+            {
+                var subTreeViewItem = item.ItemContainerGenerator.ContainerFromItem(subItem) as TreeViewItem;
+                if (subTreeViewItem != null && subTreeViewItem.IsSelected)
+                {
+                    izabraniKursevi.Add(subTreeViewItem.DataContext as Kurs);
+                }
+                GetSelectedCoursesFromTreeViewItem(subTreeViewItem, izabraniKursevi);
+            }
         }
 
         private void BTN_PotvrdiClick(object sender, RoutedEventArgs e)
         {
-
+            var courseDetailsWindow = new PotvrdiWindow(Korpa);
+            courseDetailsWindow.Show();
         }
 
         private void dtGrid_dostupni_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
