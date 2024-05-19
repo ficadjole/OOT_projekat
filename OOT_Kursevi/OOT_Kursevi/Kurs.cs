@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace OOT_Kursevi
@@ -17,7 +18,9 @@ namespace OOT_Kursevi
         private string vrsta;
         private bool dostupnost;
         private string opis;
+        private ImageSource putanja;
         private Image slika;
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -37,11 +40,26 @@ namespace OOT_Kursevi
             this.vrsta = vrsta;
             this.dostupnost = dostupnost;
             this.opis = opis;
+            putanja = new BitmapImage(new Uri(putanja_slike, UriKind.Relative));
             slika = new Image();
-            //slika.Source = new BitmapImage(new Uri(putanja_slike));
+            slika.Source = putanja;
+
         }
 
         public Kurs() { }
+
+        public int ID
+        {
+            get { return this.id; }
+            set
+            {
+                if (this.id != value)
+                {
+                    this.id = value;
+                    this.NotifyPropertyChanged("ID");
+                }
+            }
+        }
 
         public string Naziv
         {
@@ -108,29 +126,13 @@ namespace OOT_Kursevi
             }
         }
 
-        public int ID
+        public ImageSource Putanja
         {
-            get { return this.id; }
+            get { return this.putanja; }
             set
             {
-                if(this.id != value)
-                {
-                    this.id = value;
-                    this.NotifyPropertyChanged("ID");
-                }
-            }
-        }
-
-        public Image Slika
-        {
-            get { return this.slika; }
-            set
-            {
-                if (this.slika != value)
-                {
-                    this.slika = value;
-                    this.NotifyPropertyChanged("ID");
-                }
+                this.putanja = value;
+                this.NotifyPropertyChanged("Putanja");
             }
         }
     }

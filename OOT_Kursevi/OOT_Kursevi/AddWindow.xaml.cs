@@ -92,7 +92,7 @@ namespace OOT_Kursevi
                     kurs.Vrsta = txtBoxVrsta.Text;
                     kurs.Dostupnost = (bool)rdBtnDostupan.IsChecked;
                     kurs.Opis = txtBoxOpis.Text;
-                    kurs.Slika = imgIkonica;
+                    kurs.Putanja = imgIkonica.Source;
 
                     kursevi.Add(kurs);
                     MessageBox.Show("Uspesno ste dodali novi kurs");
@@ -134,7 +134,7 @@ namespace OOT_Kursevi
                     kurs.Vrsta = txtBoxVrsta.Text;
                     kurs.Dostupnost = (bool)rdBtnDostupan.IsChecked;
                     kurs.Opis = txtBoxOpis.Text;
-                    kurs.Slika = imgIkonica;
+                    kurs.Putanja = imgIkonica.Source;
 
                     kursevi_nedosupni.Add(kurs);
                     MessageBox.Show("Uspesno ste dodali novi kurs");

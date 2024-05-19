@@ -28,34 +28,34 @@ namespace OOT_Kursevi
             List<Kurs> l = new List<Kurs>();
             List<Kurs> l2 = new List<Kurs>();
 
-            l.Add(new Kurs(1,"Ronjenje",3000,"Sport","Ronjenje na dah",true, ".\\OOT_Kursevi\\slike\\C.webp"));
-            l.Add(new Kurs(2,"Teretana",5200,"Sport","Personalni trening",true,".\\OOT_Kursevi\\slike\\gym.jpg"));
-            l.Add(new Kurs(3, "Skijanje", 6000, "Sport", "Simulacija skijanja", true, ".\\OOT_Kursevi\\slike\\skijanje.jpg"));
+            l.Add(new Kurs(1,"Ronjenje",3000,"Sport","Ronjenje na dah",true, "./slike/ronjenje.webp"));
+            l.Add(new Kurs(2,"Teretana",5200,"Sport","Personalni trening",true,"./slike/gym.jpg"));
+            l.Add(new Kurs(3, "Skijanje", 6000, "Sport", "Simulacija skijanja", true, "./slike/skijanje.jpg"));
             
             
-            l2.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\pasta.jpg"));
-            l.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, ".\\OOT_Kursevi\\slike\\pizza.jpg"));
+            l2.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, "./slike/pasta.jpg"));
+            l.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, "./slike/pizza.jpg"));
 
-            l.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, ".\\OOT_Kursevi\\slike\\C.webp"));
-            l.Add(new Kurs(7, "Python", 5500, "Programiranje" , "Python kurs za sve", true, ".\\OOT_Kursevi\\slike\\python.png"));
-            l2.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, ".\\OOT_Kursevi\\slike\\c_sharp.jpg"));
+            l.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, "./slike/C.webp"));
+            l.Add(new Kurs(7, "Python", 5500, "Programiranje" , "Python kurs za sve", true, "./slike/python.png"));
+            l2.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, "./slike/c_sharp.jpg"));
 
 
             List<Kurs> l1Sport = new List<Kurs>();
-            l1Sport.Add(new Kurs(1, "Ronjenje", 3000, "Sport", "Ronjenje na dah", true, ".\\OOT_Kursevi\\slike\\C.webp"));
-            l1Sport.Add(new Kurs(2, "Teretana", 5200, "Sport", "Personalni trening", true, ".\\OOT_Kursevi\\slike\\gym.jpg"));
-            l1Sport.Add(new Kurs(3, "Skijanje", 6000, "Sport", "Simulacija skijanja", true, ".\\OOT_Kursevi\\slike\\skijanje.jpg"));
+            l1Sport.Add(new Kurs(1, "Ronjenje", 3000, "Sport", "Ronjenje na dah", true, "./slike/C.webp"));
+            l1Sport.Add(new Kurs(2, "Teretana", 5200, "Sport", "Personalni trening", true, "./slike/gym.jpg"));
+            l1Sport.Add(new Kurs(3, "Skijanje", 6000, "Sport", "Simulacija skijanja", true, "./slike/skijanje.jpg"));
             Kategorija sport = new Kategorija(1, "Sport", "Kursevi za sport", l1Sport);
 
             List<Kurs> l1Programiranje = new List<Kurs>();
-            l1Programiranje.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, ".\\OOT_Kursevi\\slike\\C.webp"));
-            l1Programiranje.Add(new Kurs(7, "Python", 5500, "Programiranje", "Python kurs za sve", true, ".\\OOT_Kursevi\\slike\\python.png"));
-            l1Programiranje.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, ".\\OOT_Kursevi\\slike\\c_sharp.jpg"));
+            l1Programiranje.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, "./slike/C.webp"));
+            l1Programiranje.Add(new Kurs(7, "Python", 5500, "Programiranje", "Python kurs za sve", true, "./slike/python.png"));
+            l1Programiranje.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, "./slike/c_sharp.jpg"));
             Kategorija programiranje = new Kategorija(1, "Programiranje", "Kursevi za sport", l1Programiranje);
 
             List<Kurs> l1Kuvanje = new List<Kurs>();
-            l1Kuvanje.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, ".\\OOT_Kursevi\\slike\\pasta.jpg"));
-            l1Kuvanje.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, ".\\OOT_Kursevi\\slike\\pizza.jpg"));
+            l1Kuvanje.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, "./slike/pasta.jpg"));
+            l1Kuvanje.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, "./slike/pizza.jpg"));
             Kategorija hrana = new Kategorija(2, "Hrana", "Kursevi za pravljenje hrane", l1Kuvanje);
 
             Kategorije = new ObservableCollection<Kategorija> { sport, hrana, programiranje };
