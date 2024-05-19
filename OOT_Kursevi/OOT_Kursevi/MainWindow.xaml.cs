@@ -255,23 +255,19 @@ namespace OOT_Kursevi
         private void btnPretraga_Click(object sender, RoutedEventArgs e)
         {
 
-            var pretraga1 = Kursevi.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
-            var pretraga2 = Kursevi_nedostupno.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text));
+            var pretraga1 = Kursevi.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text) || Kurs.Naziv.StartsWith(txtBoxPretraga.Text));
+            var pretraga2 = Kursevi_nedostupno.Where(Kurs => Kurs.Vrsta.StartsWith(txtBoxPretraga.Text) || Kurs.Naziv.StartsWith(txtBoxPretraga.Text));
 
-            if (pretraga1.Any())
+            if (pretraga1.Any() == false && pretraga2.Any() == false)
             {
-                dtGrid_dostupni.ItemsSource = pretraga1;
-
-            }
-            else if (pretraga2.Any())
-            {
-                dtGrid_nedostupni.ItemsSource = pretraga2;
+                MessageBox.Show("Vrsta ili naziv: " + txtBoxPretraga.Text + "ne postoji");
             }
             else
             {
-                txtBoxPretraga.Clear();
-                MessageBox.Show("Vrsta: " + txtBoxPretraga.Text + " nije dostupna");
+                dtGrid_dostupni.ItemsSource = pretraga1;
+                dtGrid_nedostupni.ItemsSource = pretraga2;
             }
+           
 
         }
 
