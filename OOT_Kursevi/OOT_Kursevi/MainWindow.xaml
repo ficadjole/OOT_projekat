@@ -9,12 +9,15 @@
     <Window.Resources>
         <DataTemplate x:Key="KursTemplate">
             <StackPanel Orientation="Horizontal">
-                <Image Source="{Binding Slika.Source}" Width="25" Height="25" Margin="5" />
+                <Image Source="{Binding Putanja}" Width="25" Height="25" Margin="5" />
                 <TextBlock Text="{Binding Naziv}" VerticalAlignment="Center" Margin="5,0,0,0" />
             </StackPanel>
         </DataTemplate>
         <HierarchicalDataTemplate x:Key="KategorijaTemplate" ItemsSource="{Binding Kursevi}" ItemTemplate="{StaticResource KursTemplate}">
-            <TextBlock Text="{Binding Naziv}" FontWeight="Bold" />
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding PutanjaK}" Width="25" Height="25" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding Naziv}" FontWeight="Bold" Margin="5,0,5,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
         </HierarchicalDataTemplate>
     </Window.Resources>
     <Grid>
@@ -44,7 +47,7 @@
                             <DataGridTextColumn Header="Vrsta" Binding="{Binding Path=Vrsta}"/>
                             <DataGridCheckBoxColumn Header="Dostupnost" Binding="{Binding Path=Dostupnost}"/>
                         </DataGrid.Columns>
-                    
+
                     </DataGrid>
                     <DataGrid Grid.Row="1" Grid.Column="2" x:Name="dtGrid_nedostupni" IsReadOnly="True" Margin="5,0,10,0"
                     PreviewMouseLeftButtonDown="dtGrid_nedostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_nedostupni_MouseMove"
@@ -78,10 +81,10 @@
                                     <Button x:Name="btnPretraga" Content="Pretrazi" Margin="10" Grid.Column="1" Click="btnPretraga_Click"/>
                                 </Grid>
                             </StackPanel>
-                            
+
                         </Grid>
                     </StackPanel>
-                    
+
 
                     <StackPanel Grid.Row="2" Grid.Column="2">
                         <Grid>
@@ -95,16 +98,29 @@
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Tab2" Height="20" VerticalAlignment="Bottom">
+            <TabItem Header="Tab2" Height="20" VerticalAlignment="Top">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <!--<Label Content="Drugi tab" Grid.Column="0"/>-->
-                    <TreeView x:Name="TreeViewKursevi" ItemsSource="{Binding Kategorije}" ItemTemplate="{StaticResource KategorijaTemplate}" Grid.ColumnSpan="2" Margin="10 10 10 60" />
-                    <Button Content="Potvrdi" x:Name="Potvrdi" Click="BTN_PotvrdiClick" Height="30" Width="200" Grid.Column="1" Margin="-400 350 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <Button Content="Dodaj u korpu" x:Name="Dodaj" Click="BTN_DodajClick" Height="30" Width="100" Margin="-200 350 0 0"/>
+                    <TreeView x:Name="TreeViewKursevi" ItemsSource="{Binding Kategorije}" ItemTemplate="{StaticResource KategorijaTemplate}" Grid.ColumnSpan="2" Margin="10 10 10 60" Height="300" Width="500" HorizontalAlignment="Left"/>
+                    <Button Content="Potvrdi" x:Name="Potvrdi" Click="BTN_PotvrdiClick" Height="30" Width="200" Margin="40,348,0,5" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <Button Content="Dodaj u korpu" x:Name="Dodaj" Click="BTN_DodajClick" Height="30" Width="100" Margin="-660,348,0,5" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <Grid Grid.Column="1">
+                        <Label x:Name="LabelBroj" Content="Broj Kurseva: 0" Margin="150 10 0 0"></Label>
+                        <Label x:Name="LabelCena" Content="Cena Kurseva: 0 dinara" Margin="150 25 0 0"></Label>
+                        <ListView x:Name="ListaKorpa" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="320" Width="250" Margin="0,0,10,5">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Naziv}" />
+                                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" />
+                                    <GridViewColumn Header="Vrsta" DisplayMemberBinding="{Binding Vrsta}" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Tab3">

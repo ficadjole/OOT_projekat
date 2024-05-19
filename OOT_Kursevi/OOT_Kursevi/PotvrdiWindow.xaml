@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOT_Kursevi"
         mc:Ignorable="d"
-        Title="PotvrdiWindow" Height="450" Width="800">
+        Title="PotvrdiWindow" Height="370" Width="260">
     <Grid>
-        <DataGrid x:Name="dataGridCourseDetails" AutoGenerateColumns="True" />
+        <ListView x:Name="ListaKorpa1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="320" Width="250">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Naziv" DisplayMemberBinding="{Binding Naziv}" />
+                    <GridViewColumn Header="Cena" DisplayMemberBinding="{Binding Cena}" />
+                    <GridViewColumn Header="Vrsta" DisplayMemberBinding="{Binding Vrsta}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

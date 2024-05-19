@@ -23,7 +23,7 @@ namespace OOT_Kursevi
         public PotvrdiWindow(ObservableCollection<Kurs> selectedCourses)
         {
             InitializeComponent();
-            dataGridCourseDetails.ItemsSource = selectedCourses;
+            ListaKorpa1.ItemsSource = selectedCourses;
         }
     }
 }

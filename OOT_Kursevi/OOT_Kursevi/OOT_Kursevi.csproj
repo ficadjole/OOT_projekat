@@ -12,25 +12,31 @@
     <None Remove="slike\C.webp" />
     <None Remove="slike\c_sharp.jpg" />
     <None Remove="slike\gym.jpg" />
+    <None Remove="slike\hrana.jpg" />
     <None Remove="slike\pasta.jpg" />
     <None Remove="slike\pizza.jpg" />
+    <None Remove="slike\programiranjeKat.jpg" />
     <None Remove="slike\python.png" />
     <None Remove="slike\ronjenje.jpg" />
     <None Remove="slike\ronjenje.webp" />
     <None Remove="slike\ronjnje.webp" />
     <None Remove="slike\skijanje.jpg" />
+    <None Remove="slike\sport.webp" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="slike\C.webp" />
     <Resource Include="slike\c_sharp.jpg" />
     <Resource Include="slike\gym.jpg" />
+    <Resource Include="slike\hrana.jpg" />
     <Resource Include="slike\pasta.jpg" />
     <Resource Include="slike\pizza.jpg" />
+    <Resource Include="slike\programiranjeKat.jpg" />
     <Resource Include="slike\python.png" />
     <Resource Include="slike\ronjenje.jpg" />
     <Resource Include="slike\ronjenje.webp" />
     <Resource Include="slike\skijanje.jpg" />
+    <Resource Include="slike\sport.webp" />
   </ItemGroup>
 
 </Project>

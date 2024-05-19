@@ -46,21 +46,21 @@ namespace OOT_Kursevi
 
 
             List<Kurs> l1Sport = new List<Kurs>();
-            l1Sport.Add(new Kurs(1, "Ronjenje", 3000, "Sport", "Ronjenje na dah", true, "./slike/C.webp"));
+            l1Sport.Add(new Kurs(1, "Ronjenje", 3000, "Sport", "Ronjenje na dah", true, "./slike/ronjenje.jpg"));
             l1Sport.Add(new Kurs(2, "Teretana", 5200, "Sport", "Personalni trening", true, "./slike/gym.jpg"));
             l1Sport.Add(new Kurs(3, "Skijanje", 6000, "Sport", "Simulacija skijanja", true, "./slike/skijanje.jpg"));
-            Kategorija sport = new Kategorija(1, "Sport", "Kursevi za sport", l1Sport);
+            Kategorija sport = new Kategorija(1, "Sport", "Kursevi za sport", l1Sport, "./slike/sport.webp");
 
             List<Kurs> l1Programiranje = new List<Kurs>();
             l1Programiranje.Add(new Kurs(6, "Programski jezik C", 4000, "Programiranje", "Programiranje za pocetnike", true, "./slike/C.webp"));
             l1Programiranje.Add(new Kurs(7, "Python", 5500, "Programiranje", "Python kurs za sve", true, "./slike/python.png"));
             l1Programiranje.Add(new Kurs(8, "C#", 3500, "Programiranje", "Objektno Orijentisano Programiranje", false, "./slike/c_sharp.jpg"));
-            Kategorija programiranje = new Kategorija(1, "Programiranje", "Kursevi za sport", l1Programiranje);
+            Kategorija programiranje = new Kategorija(1, "Programiranje", "Kursevi za sport", l1Programiranje, "./slike/programiranjeKat.jpg");
 
             List<Kurs> l1Kuvanje = new List<Kurs>();
             l1Kuvanje.Add(new Kurs(5, "Pravljenje paste", 2500, "Hrana", "Italijanska receptura", false, "./slike/pasta.jpg"));
             l1Kuvanje.Add(new Kurs(4, "Pravljenje pice", 2000, "Hrana", "Pizza Italiana", true, "./slike/pizza.jpg"));
-            Kategorija hrana = new Kategorija(2, "Hrana", "Kursevi za pravljenje hrane", l1Kuvanje);
+            Kategorija hrana = new Kategorija(2, "Hrana", "Kursevi za pravljenje hrane", l1Kuvanje, "./slike/hrana.jpg");
 
             Kategorije = new ObservableCollection<Kategorija> { sport, hrana, programiranje };
             Kursevi = new ObservableCollection<Kurs>(l);
@@ -86,6 +86,95 @@ namespace OOT_Kursevi
         }
         #region tab1
 
+        public ObservableCollection<Kategorija> Kategorije 
+        { 
+            get; 
+            set; 
+        }
+
+        public ObservableCollection<Kurs> Kursevi
+        {
+            get;
+            set;
+        }
+
+        public ObservableCollection <Kurs> Kursevi_nedostupno
+        {
+            get;
+            set;
+        }
+
+        private void BTN_DodajClick(object sender, RoutedEventArgs e)
+        {
+            var izabraniKursevi = GetSelectedCoursesFromTreeView(TreeViewKursevi);
+            int cena = 0;
+
+
+            if (izabraniKursevi.Count == 0)
+            {
+                MessageBox.Show("Niste izabrali nijedan kurs.", "Nema izbora", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            foreach (var kurs in izabraniKursevi)
+            {
+                if (!Korpa.Contains(kurs) && kurs.Dostupnost == true && izabraniKursevi != null)
+                {
+                    Korpa.Add(kurs);
+                    MessageBox.Show($"Kurs '{kurs.Naziv}' je uspesno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                    
+                }
+                else
+                {
+                    if (!Korpa.Contains(kurs) && kurs.Dostupnost == false)
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' trenutno nije dostupan!", "Nedostupan kurs", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    else
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' je vec u korpi.", "Kurs vec dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            foreach(var kurs in Korpa)
+            {
+                cena += kurs.Cena;
+            }
+            ListaKorpa.ItemsSource = Korpa;
+            LabelBroj.Content = "Broj Kurseva: " + Korpa.Count;
+            LabelCena.Content = "Cena Kurseva: " + cena + " dinara";
+        }
+
+        private List<Kurs> GetSelectedCoursesFromTreeView(TreeView treeView)
+        {
+            var izabraniKursevi = new List<Kurs>();
+            foreach (var item in treeView.Items)
+            {
+                var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
+                if (treeViewItem != null && treeViewItem.IsSelected)
+                {
+                    izabraniKursevi.Add(treeViewItem.DataContext as Kurs);
+                }
+                GetSelectedCoursesFromTreeViewItem(treeViewItem, izabraniKursevi);
+            }
+            return izabraniKursevi;
+        }
+
+        private void GetSelectedCoursesFromTreeViewItem(TreeViewItem item, List<Kurs> izabraniKursevi)
+        {
+            if (item == null) return;
+            foreach (var subItem in item.Items)
+            {
+                var subTreeViewItem = item.ItemContainerGenerator.ContainerFromItem(subItem) as TreeViewItem;
+                if (subTreeViewItem != null && subTreeViewItem.IsSelected)
+                {
+                    izabraniKursevi.Add(subTreeViewItem.DataContext as Kurs);
+                }
+                GetSelectedCoursesFromTreeViewItem(subTreeViewItem, izabraniKursevi);
+            }
+        }
+
+        private void BTN_PotvrdiClick(object sender, RoutedEventArgs e)
+        {
+            var courseDetailsWindow = new PotvrdiWindow(Korpa);
+            courseDetailsWindow.Show();
+        }
 
         private void dtGrid_dostupni_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
