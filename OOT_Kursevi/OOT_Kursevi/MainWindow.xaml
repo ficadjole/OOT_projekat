@@ -124,7 +124,38 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Tab3">
-                <Label Content="Treci tab"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="Tabela kategorija kurseva" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="Kursevi izabrane kategorije" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                    <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_tab3Kategorije" IsReadOnly="True"  Margin="10,0,5,0"  AutoGenerateColumns="False" SelectionChanged="dtGrid_tab3Kategorije_SelectionChanged">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dtGrid_tab3Kursevi" IsReadOnly="True" Margin="5,0,10,0" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}"/>
+                            <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cena}"/>
+                            <DataGridTextColumn Header="Vrsta" Binding="{Binding Path=Vrsta}"/>
+                            <DataGridCheckBoxColumn Header="Dostupnost" Binding="{Binding Path=Dostupnost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Grid.Row="2" Grid.Column="1" x:Name="btnExport" Content="Export" Margin="5,10,10,10" Click="btnExport_Click"/>
+
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
