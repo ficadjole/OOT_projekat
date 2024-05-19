@@ -5,6 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace OOT_Kursevi
 {
@@ -14,6 +17,8 @@ namespace OOT_Kursevi
         private string naziv;
         private string opis;
         private List<Kurs> kursevi = new List<Kurs>();
+        private ImageSource putanja;
+        private Image slika;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -25,12 +30,15 @@ namespace OOT_Kursevi
             }
         }
 
-        public Kategorija(int id, string naziv, string opis, List<Kurs> kursevi)
+        public Kategorija(int id, string naziv, string opis, List<Kurs> kursevi, string putanja_slike)
         {
             this.id = id;
             this.naziv = naziv;
             this.opis = opis;
             this.kursevi = kursevi;
+            putanja = new BitmapImage(new Uri(putanja_slike, UriKind.Relative));
+            slika = new Image();
+            slika.Source = putanja;
         }
 
         public Kategorija() { }
@@ -84,6 +92,16 @@ namespace OOT_Kursevi
                     this.kursevi = value;
                     this.NotifyPropertyChanged("Kursevi");
                 }
+            }
+        }
+
+        public ImageSource PutanjaK
+        {
+            get { return this.putanja; }
+            set
+            {
+                this.putanja = value;
+                this.NotifyPropertyChanged("PutanjaK");
             }
         }
     }
