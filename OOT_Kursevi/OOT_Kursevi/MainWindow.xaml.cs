@@ -86,95 +86,7 @@ namespace OOT_Kursevi
         }
         #region tab1
 
-        public ObservableCollection<Kategorija> Kategorije 
-        { 
-            get; 
-            set; 
-        }
-
-        public ObservableCollection<Kurs> Kursevi
-        {
-            get;
-            set;
-        }
-
-        public ObservableCollection <Kurs> Kursevi_nedostupno
-        {
-            get;
-            set;
-        }
-
-        private void BTN_DodajClick(object sender, RoutedEventArgs e)
-        {
-            var izabraniKursevi = GetSelectedCoursesFromTreeView(TreeViewKursevi);
-            int cena = 0;
-
-
-            if (izabraniKursevi.Count == 0)
-            {
-                MessageBox.Show("Niste izabrali nijedan kurs.", "Nema izbora", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            foreach (var kurs in izabraniKursevi)
-            {
-                if (!Korpa.Contains(kurs) && kurs.Dostupnost == true && izabraniKursevi != null)
-                {
-                    Korpa.Add(kurs);
-                    MessageBox.Show($"Kurs '{kurs.Naziv}' je uspesno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
-                    
-                }
-                else
-                {
-                    if (!Korpa.Contains(kurs) && kurs.Dostupnost == false)
-                        MessageBox.Show($"Kurs '{kurs.Naziv}' trenutno nije dostupan!", "Nedostupan kurs", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    else
-                        MessageBox.Show($"Kurs '{kurs.Naziv}' je vec u korpi.", "Kurs vec dodat", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            foreach(var kurs in Korpa)
-            {
-                cena += kurs.Cena;
-            }
-            ListaKorpa.ItemsSource = Korpa;
-            LabelBroj.Content = "Broj Kurseva: " + Korpa.Count;
-            LabelCena.Content = "Cena Kurseva: " + cena + " dinara";
-        }
-
-        private List<Kurs> GetSelectedCoursesFromTreeView(TreeView treeView)
-        {
-            var izabraniKursevi = new List<Kurs>();
-            foreach (var item in treeView.Items)
-            {
-                var treeViewItem = treeView.ItemContainerGenerator.ContainerFromItem(item) as TreeViewItem;
-                if (treeViewItem != null && treeViewItem.IsSelected)
-                {
-                    izabraniKursevi.Add(treeViewItem.DataContext as Kurs);
-                }
-                GetSelectedCoursesFromTreeViewItem(treeViewItem, izabraniKursevi);
-            }
-            return izabraniKursevi;
-        }
-
-        private void GetSelectedCoursesFromTreeViewItem(TreeViewItem item, List<Kurs> izabraniKursevi)
-        {
-            if (item == null) return;
-            foreach (var subItem in item.Items)
-            {
-                var subTreeViewItem = item.ItemContainerGenerator.ContainerFromItem(subItem) as TreeViewItem;
-                if (subTreeViewItem != null && subTreeViewItem.IsSelected)
-                {
-                    izabraniKursevi.Add(subTreeViewItem.DataContext as Kurs);
-                }
-                GetSelectedCoursesFromTreeViewItem(subTreeViewItem, izabraniKursevi);
-            }
-        }
-
-        private void BTN_PotvrdiClick(object sender, RoutedEventArgs e)
-        {
-            var courseDetailsWindow = new PotvrdiWindow(Korpa);
-            courseDetailsWindow.Show();
-        }
+        
 
         private void dtGrid_dostupni_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -405,18 +317,38 @@ namespace OOT_Kursevi
         private void BTN_DodajClick(object sender, RoutedEventArgs e)
         {
             var izabraniKursevi = GetSelectedCoursesFromTreeView(TreeViewKursevi);
+            int cena = 0;
+
+
+            if (izabraniKursevi.Count == 0)
+            {
+                MessageBox.Show("Niste izabrali nijedan kurs.", "Nema izbora", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             foreach (var kurs in izabraniKursevi)
             {
-                if (!Korpa.Contains(kurs))
+                if (!Korpa.Contains(kurs) && kurs.Dostupnost == true && izabraniKursevi != null)
                 {
                     Korpa.Add(kurs);
-                    MessageBox.Show($"Kurs '{kurs.Naziv}' je uspešno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show($"Kurs '{kurs.Naziv}' je uspesno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+
                 }
                 else
                 {
-                    MessageBox.Show($"Kurs '{kurs.Naziv}' je već u korpi.", "Kurs već dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                    if (!Korpa.Contains(kurs) && kurs.Dostupnost == false)
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' trenutno nije dostupan!", "Nedostupan kurs", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    else
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' je vec u korpi.", "Kurs vec dodat", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+            foreach (var kurs in Korpa)
+            {
+                cena += kurs.Cena;
+            }
+            ListaKorpa.ItemsSource = Korpa;
+            LabelBroj.Content = "Broj Kurseva: " + Korpa.Count;
+            LabelCena.Content = "Cena Kurseva: " + cena + " dinara";
         }
 
         private List<Kurs> GetSelectedCoursesFromTreeView(TreeView treeView)
