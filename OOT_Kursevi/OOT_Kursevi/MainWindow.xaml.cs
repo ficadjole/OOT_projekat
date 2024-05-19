@@ -320,26 +320,33 @@ namespace OOT_Kursevi
             int cena = 0;
 
 
-            if (izabraniKursevi.Count == 0)
+            if (izabraniKursevi.Count == 0 || izabraniKursevi == null)
             {
-                MessageBox.Show("Niste izabrali nijedan kurs.", "Nema izbora", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show($"Niste izabrali kurs!", "Pogresan izbor", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            foreach (var kurs in izabraniKursevi)
+            foreach (var item in izabraniKursevi)
             {
-                if (!Korpa.Contains(kurs) && kurs.Dostupnost == true && izabraniKursevi != null)
+                if (item is Kurs kurs)
                 {
-                    Korpa.Add(kurs);
-                    MessageBox.Show($"Kurs '{kurs.Naziv}' je uspesno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                    if (!Korpa.Contains(kurs) && kurs.Dostupnost)
+                    {
+                        Korpa.Add(kurs);
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' je uspesno dodat u korpu.", "Kurs dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else if (!kurs.Dostupnost)
+                    {
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' trenutno nije dostupan!", "Nedostupan kurs", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Kurs '{kurs.Naziv}' je vec u korpi.", "Kurs vec dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 else
                 {
-                    if (!Korpa.Contains(kurs) && kurs.Dostupnost == false)
-                        MessageBox.Show($"Kurs '{kurs.Naziv}' trenutno nije dostupan!", "Nedostupan kurs", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    else
-                        MessageBox.Show($"Kurs '{kurs.Naziv}' je vec u korpi.", "Kurs vec dodat", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Niste izabrali kurs!", "Pogresan izbor", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             foreach (var kurs in Korpa)
