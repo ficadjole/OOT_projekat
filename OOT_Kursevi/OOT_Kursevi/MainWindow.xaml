@@ -36,10 +36,26 @@
 
                     <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dtGrid_dostupni" IsReadOnly="True"  Margin="10,0,5,0" 
                     PreviewMouseLeftButtonDown="dtGrid_dostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_dostupni_MouseMove"
-                    AllowDrop="True" DragEnter="dtGrid_dostupni_DragEnter" Drop="dtGrid_dostupni_Drop"/>
+                    AllowDrop="True" DragEnter="dtGrid_dostupni_DragEnter" Drop="dtGrid_dostupni_Drop" AutoGenerateColumns="False">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}"/>
+                            <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cena}"/>
+                            <DataGridTextColumn Header="Vrsta" Binding="{Binding Path=Vrsta}"/>
+                            <DataGridCheckBoxColumn Header="Dostupnost" Binding="{Binding Path=Dostupnost}"/>
+                        </DataGrid.Columns>
+                    
+                    </DataGrid>
                     <DataGrid Grid.Row="1" Grid.Column="2" x:Name="dtGrid_nedostupni" IsReadOnly="True" Margin="5,0,10,0"
                     PreviewMouseLeftButtonDown="dtGrid_nedostupni_PreviewMouseLeftButtonDown" MouseMove="dtGrid_nedostupni_MouseMove"
-                    AllowDrop="True" DragEnter="dtGrid_nedostupni_DragEnter" Drop="dtGrid_nedostupni_Drop"/>
+                    AllowDrop="True" DragEnter="dtGrid_nedostupni_DragEnter" Drop="dtGrid_nedostupni_Drop" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Path=Naziv}"/>
+                            <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cena}"/>
+                            <DataGridTextColumn Header="Vrsta" Binding="{Binding Path=Vrsta}"/>
+                            <DataGridCheckBoxColumn Header="Dostupnost" Binding="{Binding Path=Dostupnost}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
 
                     <StackPanel Grid.Row="2" Grid.Column="0">

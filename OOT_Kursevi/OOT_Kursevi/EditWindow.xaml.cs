@@ -43,7 +43,7 @@ namespace OOT_Kursevi
 
             txtBoxOpis.Text = k.Opis.ToString();
 
-            imgIkonica = k.Slika;
+            imgIkonica.Source = k.Putanja;
             kursevi.Remove(stari_kurs);
             kursevi_nedosupni.Remove(stari_kurs);
 
@@ -85,7 +85,7 @@ namespace OOT_Kursevi
                     kurs.Vrsta = txtBoxVrsta.Text;
                     kurs.Dostupnost = (bool)rdBtnDostupan.IsChecked;
                     kurs.Opis = txtBoxOpis.Text;
-                    kurs.Slika = imgIkonica;
+                    kurs.Putanja = imgIkonica.Source;
 
                     
 
@@ -130,7 +130,7 @@ namespace OOT_Kursevi
                     kurs.Vrsta = txtBoxVrsta.Text;
                     kurs.Dostupnost = (bool)rdBtnDostupan.IsChecked;
                     kurs.Opis = txtBoxOpis.Text;
-                    kurs.Slika = imgIkonica;
+                    kurs.Putanja = imgIkonica.Source;
 
                     
 
